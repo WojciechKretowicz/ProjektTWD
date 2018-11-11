@@ -19,7 +19,12 @@ how_often <- function(scripts, regex, min_texts = 10, min_said = 1) {
 how_often_per_word <- function(scripts, regex, min_words = 10, min_said = 1) {
   # jak czesto na jedna swoja wypowiedz postac mowi tekst spelniajacy regex
   scripts <- as.data.table(scripts)
-  counted <- scripts[,.(char, temp = stri_count_regex(stri_trans_tolower(dialog), regex),
+  counted <- scripts
+  
+  counted[char == 'SMEAGOL',2] <- 'GOLLUM'
+  counted[char == 'STRIDER',2] <- 'ARAGORN'
+  
+  counted <- counted[,.(char, temp = stri_count_regex(stri_trans_tolower(dialog), regex),
                         temp2 = stri_count_words(dialog))]
   
   counted <- counted[,.(summed = sum(temp), words = sum(temp2)), by = char]

@@ -35,7 +35,7 @@ loadfonts(device="win")
 
 ggplot(data = df, aes(x = ring, y = mine, label = char, color = race)) +
   annotation_custom(rasterGrob(img, width=unit(1,"npc"), height=unit(1,"npc")), -Inf, Inf, -Inf, Inf) + 
-  geom_point(color = 'white', size = 3) + geom_label_repel(size = 5, force = 10, segment.color = 'white', family="Ringbearer", label.padding = .6,
+  geom_point(color = 'white', size = 3) + geom_label_repel(size = 5, force = 15, segment.color = 'white', family="Ringbearer", label.padding = .6,
                                                  label.size = 3) + geom_hline(yintercept = med.y, color = 'white') + geom_vline(xintercept = med.x, color = 'white') +
   annotate("label", x = 0.015, y = 0.016, label = 'Anxious', size = 12, color = 'red', family="Ringbearer") + 
   annotate('label', x = 0.015, y = 0.001, label = 'Interested', size = 12, color = 'orange', family="Ringbearer") +
