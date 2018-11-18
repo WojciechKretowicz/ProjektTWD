@@ -37,12 +37,12 @@ loadfonts(device="win")
 
 P <- ggplot(data = df, aes(x = ring, y = mine, label = char, color = race)) +
   #annotation_custom(rasterGrob(img, width=unit(1,"npc"), height=unit(1,"npc")), -Inf, Inf, -Inf, Inf) + 
-  geom_point(color = 'white', size = 3) + geom_label_repel(size = 5, force = 15, segment.color = 'white', family="Ringbearer", label.padding = .6,
+  geom_point(color = 'white', size = 3) + geom_label_repel(size = 5, force = 10, segment.color = 'white', family="Ringbearer", label.padding = .6,
                                                  label.size = 3) + geom_hline(yintercept = med.y, color = 'white') + geom_vline(xintercept = med.x, color = 'white') +
-  annotate("label", x = 0.016, y = 0.0165, label = 'Anxious', size = 12, color = 'red', family="Ringbearer") + 
+  annotate("label", x = 0.016, y = 0.016, label = 'Anxious', size = 12, color = 'red', family="Ringbearer") + 
   annotate('label', x = 0.016, y = 0.001, label = 'Interested', size = 12, color = 'orange', family="Ringbearer") +
   annotate('label', x = 0.0016, y = 0.001, label = 'Neutral', size = 12, color = 'green', family="Ringbearer") +
-  annotate('label', x = 0.0016, y = 0.0165, label = 'Greedy', size = 12, color = 'orange', family="Ringbearer") + 
+  annotate('label', x = 0.0016, y = 0.016, label = 'Greedy', size = 12, color = 'orange', family="Ringbearer") + 
   xlab('Frequency of mentioning the Ring') + ylab('Frequency of utter \"my/mine\"') +
   scale_x_log10(breaks = rep(2,10) ^ (-14:-5), labels = labels.x) +
   scale_y_continuous(breaks = seq(0.00, 0.015, 0.001), labels = labels.y) +
@@ -50,7 +50,8 @@ P <- ggplot(data = df, aes(x = ring, y = mine, label = char, color = race)) +
   theme(title = element_text(color = 'gold', size = 20),axis.title = element_text(size = 20, color = 'gold'),
         plot.background = element_rect('black'), axis.text = element_text(color = 'gold'),
         text=element_text(size=16, family="Ringbearer"),
-        panel.grid = element_blank(), panel.border = element_rect('white', fill = NA))
+        panel.grid = element_blank(), panel.border = element_rect('white', fill = NA),
+        legend.background = element_rect(fill ='white'))
 
 
 ggbackground(P,'https://www.hdwallpaper.nu/wp-content/uploads/2015/04/rings_the_lord_of_the_rings_one_ring_hd_wallpaper.jpg')
